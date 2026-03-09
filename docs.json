@@ -124,13 +124,13 @@
     "links": [
       {
         "label": "GitHub",
-        "href": "https://github.com/yourusername/voice-agent-docs"
+        "href": "https://github.com/elsageorgecsm"
       }
     ],
     "primary": {
       "type": "button",
       "label": "View Project",
-      "href": "https://github.com/yourusername/voice-agent-docs"
+      "href": "https://github.com/elsageorgecsm/livekit-voice-agent"
     }
   },
   "contextual": {
