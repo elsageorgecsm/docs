@@ -1,0 +1,145 @@
+---
+title: Tool Calling
+description: Learn how AI agents use tools and APIs to perform real-world tasks.
+---
+
+## What is Tool Calling?
+
+**Tool calling** allows an AI agent to interact with external systems to complete tasks.
+
+While large language models can generate text, they cannot directly:
+
+- access databases
+- fetch live information
+- book appointments
+- interact with external systems
+
+Tools allow the AI agent to **perform actions beyond text generation**.
+
+---
+
+## Why Tools Are Important
+
+Without tools, an AI agent can only generate responses based on its training data.
+
+With tools, an agent can:
+
+- retrieve real-time information
+- interact with APIs
+- automate workflows
+- execute tasks on behalf of users
+
+Example:
+
+```
+User: "What's the weather today?"
+
+Agent steps:
+1. Detect weather request
+2. Call weather API
+3. Receive weather data
+4. Generate response
+```
+
+---
+
+## Tool Calling Workflow
+
+A typical tool execution pipeline looks like this:
+
+```
+User Request
+   ↓
+LLM understands intent
+   ↓
+Agent selects tool
+   ↓
+Tool executes task
+   ↓
+Result returned to agent
+   ↓
+LLM generates final response
+```
+
+---
+
+## Example Tool in Python
+
+Below is a simple example of a Python function that an agent could use as a tool.
+
+```python
+def get_weather(city):
+    return f"The weather in {city} is sunny today."
+
+result = get_weather("London")
+print(result)
+```
+
+Output:
+
+```
+The weather in London is sunny today.
+```
+
+The agent could call this function when the user asks about the weather.
+
+---
+
+## Tool Calling in AI Agents
+
+In modern AI agent frameworks, the language model decides **when to call a tool**.
+
+Example:
+
+```
+User: "Book a meeting tomorrow"
+
+Agent reasoning:
+1. User wants to schedule meeting
+2. Call calendar API
+3. Create meeting
+4. Confirm booking
+```
+
+Tools allow agents to **perform real-world actions automatically**.
+
+---
+
+## Tool Calling in Voice Agents
+
+Voice agents use tools to handle tasks during conversations.
+
+Example voice workflow:
+
+```
+User Voice
+   ↓
+Speech-to-Text
+   ↓
+LLM detects intent
+   ↓
+Agent calls tool
+   ↓
+Tool performs task
+   ↓
+LLM generates response
+   ↓
+Text-to-Speech
+   ↓
+Voice Response
+```
+
+This allows voice assistants to handle tasks such as:
+
+- booking appointments
+- retrieving information
+- controlling devices
+- querying databases
+
+---
+
+## Next Step
+
+<Card title="LiveKit Introduction" icon="mic" href="/livekit/livekit-intro">
+Learn how LiveKit enables real-time voice communication for AI agents.
+</Card>

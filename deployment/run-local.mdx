@@ -1,0 +1,120 @@
+---
+title: Run Locally
+description: Learn how to run your LiveKit voice agent locally for testing and development.
+---
+
+## Running Your Agent Locally
+
+Before deploying your voice agent to production, it is important to test it locally.
+
+Running the agent locally allows you to:
+
+- verify that your environment is configured correctly
+- test the voice pipeline
+- debug errors
+- experiment with new features
+
+---
+
+## Step 1: Activate Your Virtual Environment
+
+If you created a virtual environment earlier, activate it before running your agent.
+
+Mac / Linux:
+
+```bash
+source venv/bin/activate
+```
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+This ensures that all project dependencies are available.
+
+---
+
+## Step 2: Verify Environment Variables
+
+Your agent requires configuration variables such as API keys and server URLs.
+
+Check that your `.env` file contains values like:
+
+```
+LIVEKIT_API_KEY=your_api_key
+LIVEKIT_API_SECRET=your_api_secret
+LIVEKIT_URL=your_livekit_server
+```
+
+These variables allow your agent to connect to the LiveKit server.
+
+---
+
+## Step 3: Run the Agent
+
+Start your voice agent using Python.
+
+```bash
+python agent.py
+```
+
+If the agent starts successfully, it will begin listening for incoming connections from the LiveKit room.
+
+---
+
+## Step 4: Join a LiveKit Room
+
+To test the agent, join a LiveKit room using a client application.
+
+This could be:
+
+- a browser-based client
+- a mobile application
+- a test interface
+
+Once connected, speak into your microphone to interact with the agent.
+
+---
+
+## What Happens During Execution
+
+When the agent is running locally, the following sequence occurs:
+
+```
+User joins LiveKit room
+↓
+User speaks into microphone
+↓
+Speech-to-Text converts audio to text
+↓
+Language model processes the request
+↓
+Text-to-Speech generates response
+↓
+Audio response returned to the user
+```
+
+This creates a **real-time conversation loop**.
+
+---
+
+## Debugging Tips
+
+If the agent does not start correctly:
+
+- check Python installation
+- confirm dependencies are installed
+- verify environment variables
+- review console logs for errors
+
+Running locally helps identify issues before deploying the system.
+
+---
+
+## Next Step
+
+<Card title="Deploy Your Agent" icon="cloud" href="/deployment/deploy-livekit">
+Learn how to deploy your voice agent to a LiveKit environment.
+</Card>

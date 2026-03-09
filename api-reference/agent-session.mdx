@@ -1,0 +1,139 @@
+---
+title: Agent Session API
+description: Reference documentation for the AgentSession class used in LiveKit voice agents.
+---
+
+## Overview
+
+`AgentSession` is the core runtime component used to run a LiveKit voice agent.
+
+It connects the main parts of the voice pipeline, including:
+
+- speech-to-text (STT)
+- language models (LLM)
+- text-to-speech (TTS)
+- tool execution
+
+The session manages the flow of data between the user and the AI system during a conversation.
+
+---
+
+## Responsibilities
+
+An AgentSession coordinates multiple tasks during a voice interaction.
+
+These include:
+
+- receiving audio from the user
+- converting speech to text
+- sending messages to the language model
+- executing tools when needed
+- generating responses
+- converting responses into speech
+- streaming audio back to the user
+
+This makes the session the **central controller of the voice pipeline**.
+
+---
+
+## Basic Example
+
+Below is a simple example of creating an agent session.
+
+```python
+from livekit.agents import AgentSession
+
+session = AgentSession(
+    stt="speech_to_text_engine",
+    llm="language_model",
+    tts="text_to_speech_engine"
+)
+```
+
+In this setup:
+
+- STT converts audio to text  
+- LLM processes the request  
+- TTS generates the spoken response
+
+---
+
+## Example Using Plugins
+
+LiveKit agents can use plugins to integrate different AI services.
+
+```python
+from livekit.agents import AgentSession
+from livekit.plugins import openai, cartesia, assemblyai
+
+session = AgentSession(
+    llm=openai.LLM(model="gpt-4.1-mini"),
+    stt=assemblyai.STT(),
+    tts=cartesia.TTS()
+)
+```
+
+This configuration connects the agent to:
+
+- an LLM provider
+- a speech recognition engine
+- a voice synthesis engine
+
+---
+
+## Session Workflow
+
+A typical session workflow looks like this:
+
+```
+User joins LiveKit room
+   ↓
+Agent session starts
+   ↓
+Audio stream received
+   ↓
+Speech-to-Text converts audio
+   ↓
+Language model processes request
+   ↓
+Tool execution (optional)
+   ↓
+Text-to-Speech generates response
+   ↓
+Audio response returned to user
+```
+
+The session remains active while the conversation continues.
+
+---
+
+## Common Parameters
+
+AgentSession usually accepts parameters such as:
+
+- `stt` → speech recognition engine
+- `llm` → language model provider
+- `tts` → text-to-speech system
+- `turn_detection` → detects when the user stops speaking
+- `vad` → voice activity detection
+
+These options allow developers to customize the behavior of the voice agent.
+
+---
+
+## Related APIs
+
+AgentSession works together with other components such as:
+
+- AgentServer
+- Plugins
+- Voice Pipeline
+- Tool Calling
+
+---
+
+## Next Step
+
+<Card title="Agent Server API" icon="server" href="/api-reference/agent-server">
+Learn how the AgentServer manages and runs voice agents.
+</Card>

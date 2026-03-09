@@ -1,0 +1,155 @@
+---
+title: Deploy to LiveKit
+description: Learn how to deploy your voice agent using a LiveKit server or LiveKit Cloud.
+---
+
+## Deploying Your Voice Agent
+
+Once your voice agent works locally, the next step is deploying it so that users can interact with it remotely.
+
+Deployment allows your agent to run continuously and handle real-time voice conversations.
+
+A deployed agent typically runs on a server connected to a LiveKit instance.
+
+---
+
+## Deployment Architecture
+
+A typical deployment setup looks like this:
+
+```
+User Device
+   ↓
+LiveKit Server
+   ↓
+Voice Agent Service
+   ↓
+Speech-to-Text
+   ↓
+Language Model
+   ↓
+Text-to-Speech
+   ↓
+Audio Response
+```
+
+The LiveKit server manages real-time communication between users and the voice agent.
+
+---
+
+## Step 1: Prepare Your Server
+
+Choose a server environment where your agent will run.
+
+Common options include:
+
+- cloud virtual machines
+- container platforms
+- serverless infrastructure
+
+Make sure the server has:
+
+- Python installed
+- internet access
+- required dependencies installed
+
+---
+
+## Step 2: Upload Your Project
+
+Transfer your project files to the server.
+
+Example using Git:
+
+```bash
+git clone https://github.com/yourusername/voice-agent-project
+cd voice-agent-project
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Step 3: Configure Environment Variables
+
+Create a `.env` file on the server.
+
+Example configuration:
+
+```
+LIVEKIT_API_KEY=your_api_key
+LIVEKIT_API_SECRET=your_api_secret
+LIVEKIT_URL=your_livekit_server
+```
+
+These values allow the agent to authenticate and connect to the LiveKit server.
+
+---
+
+## Step 4: Start the Agent
+
+Run the agent service.
+
+```bash
+python agent.py
+```
+
+The agent will connect to LiveKit and wait for incoming audio streams.
+
+---
+
+## Step 5: Connect a Client
+
+Users can now interact with the agent through a LiveKit client such as:
+
+- a browser application
+- a mobile application
+- a testing interface
+
+Once connected, users can speak to the agent in real time.
+
+---
+
+## Scaling Your Agent
+
+In production environments, you may want to scale the system to handle multiple users.
+
+Common approaches include:
+
+- running multiple agent instances
+- containerizing the application
+- using orchestration platforms
+
+Scaling ensures that your voice agent can handle increased demand.
+
+---
+
+## Monitoring and Maintenance
+
+After deployment, it is important to monitor the system.
+
+You should track:
+
+- system performance
+- error logs
+- response latency
+- usage metrics
+
+Monitoring helps ensure the agent remains reliable.
+
+---
+
+## Next Steps
+
+You now have a complete pipeline for building and deploying a voice agent.
+
+From here, you can enhance the system by adding:
+
+- improved speech models
+- advanced reasoning capabilities
+- additional tools and integrations
+- better conversation memory

@@ -1,0 +1,188 @@
+---
+title: Async Python
+description: Learn how asynchronous programming helps voice agents process real-time events.
+---
+
+## What is Asynchronous Programming?
+
+Asynchronous programming allows a program to **perform multiple tasks without blocking execution**.
+
+Instead of waiting for one task to finish before starting another, the program can continue running other tasks in the meantime.
+
+This is extremely useful for applications that handle:
+
+- network requests
+- real-time audio streaming
+- API calls
+- database queries
+
+Voice agents rely heavily on asynchronous programming to maintain **low latency and real-time responsiveness**.
+
+---
+
+## Synchronous vs Asynchronous
+
+### Synchronous Code
+
+In synchronous programming, tasks execute **one after another**.
+
+```python
+import time
+
+print("Listening...")
+time.sleep(3)
+print("Processing message...")
+```
+
+The program pauses for 3 seconds before continuing.
+
+---
+
+### Asynchronous Code
+
+In asynchronous programming, tasks can run **concurrently**.
+
+```python
+import asyncio
+
+async def listen():
+    print("Listening...")
+    await asyncio.sleep(3)
+    print("Finished listening")
+
+asyncio.run(listen())
+```
+
+Here the program can continue performing other tasks while waiting.
+
+---
+
+## The `async` and `await` Keywords
+
+Python uses two keywords for asynchronous programming.
+
+### `async`
+
+Marks a function as asynchronous.
+
+```python
+async def greet():
+    print("Hello!")
+```
+
+---
+
+### `await`
+
+Used to pause execution until an asynchronous task completes.
+
+```python
+await asyncio.sleep(2)
+```
+
+This allows other tasks to run during the wait.
+
+---
+
+## Running Async Functions
+
+Async functions are executed using an **event loop**.
+
+Example:
+
+```python
+import asyncio
+
+async def greet():
+    print("Hello agent!")
+
+asyncio.run(greet())
+```
+
+Output:
+
+```
+Hello agent!
+```
+
+---
+
+## Multiple Async Tasks
+
+Async programming allows multiple tasks to run at the same time.
+
+```python
+import asyncio
+
+async def task_one():
+    await asyncio.sleep(2)
+    print("Task one complete")
+
+async def task_two():
+    await asyncio.sleep(1)
+    print("Task two complete")
+
+async def main():
+    await asyncio.gather(task_one(), task_two())
+
+asyncio.run(main())
+```
+
+Output:
+
+```
+Task two complete
+Task one complete
+```
+
+The tasks run **concurrently instead of sequentially**.
+
+---
+
+## Async in Voice Agents
+
+Voice agents require asynchronous programming to handle multiple processes at once.
+
+Examples include:
+
+- streaming audio input
+- sending requests to language models
+- calling APIs
+- generating speech output
+
+Example:
+
+```python
+async def process_message(message):
+    print("Processing:", message)
+
+async def listen():
+    message = "Hello agent"
+    await process_message(message)
+
+import asyncio
+asyncio.run(listen())
+```
+
+Async functions help voice agents **respond quickly without blocking other operations**.
+
+---
+
+## Why Async Matters for LiveKit Agents
+
+Realtime voice systems such as LiveKit rely on asynchronous programming to manage:
+
+- incoming audio streams
+- realtime responses
+- network communication
+- multiple users simultaneously
+
+Without async programming, voice agents would feel **slow and unresponsive**.
+
+---
+
+## Next Step
+
+<Card title="AI Agents Introduction" icon="cpu" href="/ai-agents/ai-agents-intro">
+Learn how AI agents use language models and tools to interact with users.
+</Card>

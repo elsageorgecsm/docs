@@ -1,0 +1,197 @@
+---
+title: Classes
+description: Learn how Python classes help structure larger programs and AI systems.
+---
+
+## What is a Class?
+
+A **class** is a blueprint used to create objects.
+
+Classes allow you to group:
+
+- data (attributes)
+- behavior (methods)
+
+into a single structure.
+
+This helps organize complex programs and makes code easier to maintain.
+
+---
+
+## Creating a Class
+
+A class is defined using the `class` keyword.
+
+Example:
+
+```python
+class Agent:
+    pass
+```
+
+This creates an empty class named `Agent`.
+
+---
+
+## Class Attributes
+
+Attributes store information about an object.
+
+Example:
+
+```python
+class Agent:
+    def __init__(self, name):
+        self.name = name
+```
+
+The `__init__` method is called automatically when a new object is created.
+
+---
+
+## Creating an Object
+
+Once a class is defined, we can create an object from it.
+
+```python
+agent = Agent("Elsa")
+
+print(agent.name)
+```
+
+Output:
+
+```
+Elsa
+```
+
+Here:
+
+- `Agent` is the class
+- `agent` is the object
+- `"Elsa"` is passed as a parameter
+
+---
+
+## Class Methods
+
+Methods are functions that belong to a class.
+
+Example:
+
+```python
+class Agent:
+
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print("Hello, I am", self.name)
+```
+
+Using the method:
+
+```python
+agent = Agent("VoiceBot")
+agent.greet()
+```
+
+Output:
+
+```
+Hello, I am VoiceBot
+```
+
+---
+
+## Multiple Attributes
+
+Classes can store multiple pieces of information.
+
+```python
+class VoiceAgent:
+
+    def __init__(self, name, language):
+        self.name = name
+        self.language = language
+```
+
+Creating an object:
+
+```python
+agent = VoiceAgent("Elsa", "English")
+
+print(agent.name)
+print(agent.language)
+```
+
+Output:
+
+```
+Elsa
+English
+```
+
+---
+
+## Classes in Voice Agents
+
+In AI applications, classes help structure systems such as:
+
+- voice agents
+- conversation handlers
+- tool managers
+- API integrations
+
+Example:
+
+```python
+class VoiceAgent:
+
+    def __init__(self, name):
+        self.name = name
+
+    def respond(self, message):
+
+        if "hello" in message.lower():
+            return "Hello! How can I help you?"
+
+        return "I'm not sure how to respond."
+
+agent = VoiceAgent("Assistant")
+
+print(agent.respond("hello"))
+```
+
+Output:
+
+```
+Hello! How can I help you?
+```
+
+Classes make it easier to build **scalable AI systems**.
+
+---
+
+## Why Classes Are Important
+
+Classes are useful when:
+
+- your program grows larger
+- multiple components need to work together
+- you want reusable structures
+
+They are widely used in:
+
+- AI frameworks
+- web applications
+- data processing systems
+- voice assistant architectures
+
+---
+
+## Next Step
+
+<Card title="Async Python" icon="code" href="/python/async-python">
+Learn how asynchronous programming helps voice agents process real-time events.
+</Card>

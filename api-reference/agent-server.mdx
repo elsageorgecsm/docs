@@ -1,0 +1,125 @@
+---
+title: Agent Server API
+description: Reference documentation for the AgentServer class used to run LiveKit voice agents.
+---
+
+## Overview
+
+`AgentServer` is responsible for **running and managing voice agent processes**.
+
+It acts as the entry point for starting your voice agent application and allows agents to connect to a LiveKit server.
+
+The server handles tasks such as:
+
+- initializing agent sessions
+- managing incoming connections
+- coordinating communication with LiveKit rooms
+- running the agent runtime environment
+
+Together with `AgentSession`, the server forms the core runtime of a LiveKit voice agent.
+
+---
+
+## Responsibilities
+
+The `AgentServer` manages several responsibilities within the system.
+
+These include:
+
+- launching the voice agent service
+- handling incoming user sessions
+- connecting agents to LiveKit rooms
+- coordinating session lifecycle management
+
+The server ensures that agents can operate reliably during real-time conversations.
+
+---
+
+## Basic Usage
+
+A simple agent server can be created and started as shown below.
+
+```python
+from livekit.agents import AgentServer
+
+server = AgentServer()
+server.start()
+```
+
+This starts the agent runtime and prepares it to accept incoming voice sessions.
+
+---
+
+## Server and Session Relationship
+
+The relationship between the server and sessions can be visualized as:
+
+```
+Agent Server
+   ↓
+Agent Session
+   ↓
+Speech-to-Text
+   ↓
+Language Model
+   ↓
+Text-to-Speech
+```
+
+The server manages sessions, while each session handles a **single conversation instance**.
+
+---
+
+## Example Agent Application
+
+Below is a simplified example combining both `AgentServer` and `AgentSession`.
+
+```python
+from livekit.agents import AgentServer, AgentSession
+
+session = AgentSession(
+    stt="speech_to_text_engine",
+    llm="language_model",
+    tts="text_to_speech_engine"
+)
+
+server = AgentServer()
+server.start()
+```
+
+In this setup:
+
+- `AgentServer` starts the runtime environment  
+- `AgentSession` manages the voice interaction pipeline  
+
+---
+
+## Deployment Considerations
+
+When running an agent server in production, it is recommended to:
+
+- run the server on a dedicated machine or container
+- configure environment variables securely
+- monitor logs and system performance
+- scale multiple agent instances if needed
+
+These practices ensure the voice agent remains reliable and responsive.
+
+---
+
+## Related APIs
+
+The following APIs are commonly used with `AgentServer`:
+
+- AgentSession
+- Plugins
+- Speech Models
+- Language Models
+
+---
+
+## Next Step
+
+<Card title="Plugins API" icon="puzzle-piece" href="/api-reference/plugins">
+Explore how plugins extend the capabilities of voice agents.
+</Card>

@@ -1,0 +1,179 @@
+---
+title: Functions
+description: Learn how to organize reusable logic in Python using functions.
+---
+
+## What is a Function?
+
+A **function** is a reusable block of code that performs a specific task.
+
+Functions help you:
+
+- avoid repeating code
+- organize complex logic
+- make programs easier to read
+- build modular applications
+
+Example:
+
+```python
+def greet():
+    print("Hello from the voice agent!")
+```
+
+To run the function:
+
+```python
+greet()
+```
+
+Output:
+
+```
+Hello from the voice agent!
+```
+
+---
+
+## Function Syntax
+
+A Python function is created using the `def` keyword.
+
+```python
+def function_name():
+    # code to execute
+```
+
+Example:
+
+```python
+def say_hello():
+    print("Hello user!")
+```
+
+---
+
+## Functions with Parameters
+
+Functions often need input values. These inputs are called **parameters**.
+
+Example:
+
+```python
+def greet_user(name):
+    print("Hello", name)
+```
+
+Calling the function:
+
+```python
+greet_user("Elsa")
+```
+
+Output:
+
+```
+Hello Elsa
+```
+
+---
+
+## Functions with Return Values
+
+Functions can also return values using the `return` keyword.
+
+Example:
+
+```python
+def add_numbers(a, b):
+    return a + b
+
+result = add_numbers(3, 4)
+print(result)
+```
+
+Output:
+
+```
+7
+```
+
+The returned value can be stored in a variable.
+
+---
+
+## Default Parameters
+
+Functions can define **default values** for parameters.
+
+```python
+def greet(name="User"):
+    print("Hello", name)
+```
+
+Calling the function:
+
+```python
+greet()
+greet("Elsa")
+```
+
+Output:
+
+```
+Hello User
+Hello Elsa
+```
+
+---
+
+## Example: Function for a Voice Agent
+
+Voice agents often use functions to process user messages.
+
+Example:
+
+```python
+def handle_message(message):
+    
+    if "hello" in message.lower():
+        return "Hello! How can I help you today?"
+    
+    if "weather" in message.lower():
+        return "Let me check the weather for you."
+    
+    return "Sorry, I didn't understand that."
+
+response = handle_message("Hello agent")
+print(response)
+```
+
+Output:
+
+```
+Hello! How can I help you today?
+```
+
+Functions help organize the logic that processes user input.
+
+---
+
+## Why Functions Matter in Voice Agents
+
+In a voice agent system, functions are commonly used to:
+
+- process user input
+- generate responses
+- call external APIs
+- interact with databases
+- trigger AI models
+
+By separating logic into functions, the code becomes **easier to maintain and scale**.
+
+---
+
+## Next Step
+
+<Card title="Python Classes" icon="code" href="/python/classes">
+Learn how Python classes help structure larger programs and AI systems.
+</Card>

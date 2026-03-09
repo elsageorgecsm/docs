@@ -1,0 +1,112 @@
+---
+title: Git Cheat Sheet
+description: Quick reference for commonly used Git commands.
+---
+
+## Setup
+
+Configure user information used across repositories.
+
+```bash
+git config --global user.name "Firstname Lastname"
+git config --global user.email "your@email.com"
+git config --global color.ui auto
+```
+
+---
+
+## Initialize Repository
+
+```bash
+git init
+git clone <repository-url>
+```
+
+---
+
+## Stage and Commit
+
+```bash
+git status
+git add <file>
+git reset <file>
+git diff
+git diff --staged
+git commit -m "commit message"
+```
+
+---
+
+## Branching
+
+```bash
+git branch
+git branch <branch-name>
+git checkout <branch>
+git merge <branch>
+git log
+```
+
+---
+
+## Share & Update
+
+```bash
+git remote add origin <url>
+git fetch origin
+git pull
+git push origin <branch>
+```
+
+---
+
+## File Changes
+
+```bash
+git rm <file>
+git mv <old-path> <new-path>
+git log --stat -M
+```
+
+---
+
+## Temporary Changes
+
+```bash
+git stash
+git stash list
+git stash pop
+git stash drop
+```
+
+---
+
+## History Commands
+
+```bash
+git rebase <branch>
+git reset --hard <commit>
+```
+
+---
+
+## Inspect & Compare
+
+```bash
+git log
+git log branchB..branchA
+git diff branchB...branchA
+git show <SHA>
+```
+
+---
+
+## Ignoring Files
+
+Create a `.gitignore` file:
+
+```
+logs/
+*.notes
+pattern*/
+```

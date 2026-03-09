@@ -1,0 +1,135 @@
+---
+title: Architecture
+description: Understand the architecture of a realtime AI voice agent.
+---
+
+## Voice Agent Architecture
+
+A voice agent is composed of several components that work together to enable **natural voice conversations between humans and AI systems**.
+
+The architecture combines **speech technologies, language models, and realtime communication infrastructure**.
+
+---
+
+## High-Level Flow
+
+A typical voice interaction follows this sequence:
+
+
+Each component plays an important role in enabling a **real-time conversational experience**.
+
+---
+
+## System Components
+
+### 🎙 User Voice
+
+The interaction begins when a user speaks into their device.
+
+Audio is captured using:
+
+- microphone
+- browser audio APIs
+- realtime communication systems
+
+This audio is then streamed to the backend for processing.
+
+---
+
+### 📝 Speech-to-Text (STT)
+
+Speech-to-text systems convert **audio into text**.
+
+This step allows the AI system to understand the user’s request.
+
+Popular STT systems include:
+
+- Whisper
+- Deepgram
+- Google Speech API
+
+The output of this stage is **a text transcript of the user's speech**.
+
+---
+
+### 🧠 Language Model (LLM)
+
+The language model processes the transcript and determines the best response.
+
+The LLM can:
+
+- understand user intent  
+- maintain conversation context  
+- generate responses  
+- decide when to call external tools  
+
+Examples include modern large language models used in conversational AI.
+
+---
+
+### 🛠 Tool Execution
+
+Voice agents often need to **perform actions** beyond generating text.
+
+Examples include:
+
+- booking appointments  
+- retrieving database information  
+- calling external APIs  
+- controlling smart devices  
+
+The language model can trigger tools to execute these tasks.
+
+---
+
+### 🔊 Text-to-Speech (TTS)
+
+Once a response is generated, the text is converted back into **natural-sounding speech**.
+
+This step enables the AI agent to speak back to the user.
+
+Popular TTS engines include:
+
+- ElevenLabs
+- Azure TTS
+- Google TTS
+
+---
+
+### 👂 Voice Response
+
+The generated audio is streamed back to the user through the voice interface.
+
+From the user's perspective, the interaction feels like a **natural conversation**.
+
+---
+
+## Role of LiveKit
+
+In this project, we use **LiveKit** to handle the realtime communication layer.
+
+LiveKit enables:
+
+- realtime audio streaming  
+- low-latency communication  
+- voice agent connections to rooms  
+- scalable infrastructure for voice applications  
+
+The voice agent joins a LiveKit room and processes incoming audio streams.
+
+---
+
+## Putting It All Together
+
+When combined, these components create a **fully functional voice AI system**.
+
+
+This architecture allows voice agents to operate **in real time with minimal latency**.
+
+---
+
+## Next Step
+
+<Card title="Voice Pipeline Explained" icon="waveform" href="/livekit/voice-pipeline">
+Dive deeper into how the voice pipeline works in a LiveKit agent.
+</Card>

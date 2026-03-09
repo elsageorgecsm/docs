@@ -1,0 +1,134 @@
+---
+title: Adding Tools
+description: Extend your voice agent by integrating external tools and APIs.
+---
+
+## Why Add Tools to an Agent?
+
+A basic voice agent can generate responses using a language model, but it cannot perform real-world actions on its own.
+
+**Tools allow the agent to interact with external systems**, enabling it to:
+
+- retrieve real-time information
+- interact with APIs
+- access databases
+- automate tasks
+- trigger workflows
+
+With tools, your agent becomes **much more powerful and useful**.
+
+---
+
+## Example Tool
+
+A tool is often implemented as a Python function.
+
+Example:
+
+```python
+def get_weather(city):
+    return f"The weather in {city} is sunny today."
+```
+
+The agent can call this function when the user asks about the weather.
+
+---
+
+## Using Tools in an Agent
+
+When the agent receives a user request, it can:
+
+```
+User Request
+   ↓
+LLM interprets intent
+   ↓
+Agent selects tool
+   ↓
+Tool executes task
+   ↓
+Result returned
+   ↓
+Agent generates response
+```
+
+Example conversation:
+
+```
+User: What's the weather in London?
+
+Agent:
+1. Detect weather request
+2. Call weather tool
+3. Retrieve result
+4. Respond to user
+```
+
+---
+
+## Example Agent with Tool
+
+Below is a simplified example of how a voice agent could use a tool.
+
+```python
+def get_weather(city):
+    return f"The weather in {city} is sunny today."
+
+
+def handle_message(message):
+    if "weather" in message.lower():
+        return get_weather("London")
+
+    return "I'm not sure how to help with that."
+```
+
+This structure allows the agent to perform **task-based responses instead of only generating text**.
+
+---
+
+## Common Tools for AI Agents
+
+Agents commonly integrate with tools such as:
+
+- weather APIs
+- calendar services
+- database queries
+- search systems
+- payment systems
+- automation workflows
+
+These integrations allow the agent to **solve real-world problems**.
+
+---
+
+## Tools in Voice Agents
+
+When using voice interfaces, tool execution usually follows this pipeline:
+
+```
+User Voice
+   ↓
+Speech-to-Text
+   ↓
+LLM detects intent
+   ↓
+Agent calls tool
+   ↓
+Tool performs action
+   ↓
+Response generated
+   ↓
+Text-to-Speech
+   ↓
+Voice Response
+```
+
+This enables voice agents to perform actions during conversations.
+
+---
+
+## Next Step
+
+<Card title="Noise Cancellation" icon="waveform" href="/advanced/noise-cancellation">
+Improve voice quality in your agent using noise cancellation.
+</Card>

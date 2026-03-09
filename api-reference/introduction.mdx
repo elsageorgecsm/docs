@@ -1,33 +1,104 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: API Reference
+description: Reference documentation for the core components used in LiveKit voice agents.
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Overview
 
-## Welcome
+The API reference section provides detailed information about the core components used to build voice agents.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+These APIs allow developers to manage:
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+- agent sessions
+- server runtime
+- plugins and integrations
+- communication with LiveKit rooms
 
-## Authentication
+This reference section complements the guides by explaining **how the underlying components work and how to use them in code**.
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+---
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+## Key Components
+
+The main components covered in this reference include:
+
+### AgentSession
+
+The `AgentSession` manages the lifecycle of a voice agent during a conversation.
+
+Responsibilities include:
+
+- handling audio streams
+- coordinating speech-to-text
+- sending messages to the language model
+- generating responses
+
+---
+
+### AgentServer
+
+The `AgentServer` runs the voice agent service and manages connections to the LiveKit server.
+
+It handles:
+
+- incoming sessions
+- agent lifecycle management
+- communication with clients
+
+---
+
+### Plugins
+
+Plugins extend the functionality of voice agents.
+
+They may include integrations for:
+
+- speech-to-text engines
+- text-to-speech systems
+- noise cancellation
+- external APIs
+
+Plugins allow developers to customize how their voice agents process audio and generate responses.
+
+---
+
+## Example Structure
+
+A simple voice agent setup may look like this:
+
+```python
+from livekit.agents import AgentSession, AgentServer
+
+session = AgentSession(
+    stt="speech_to_text_engine",
+    llm="language_model",
+    tts="text_to_speech_engine"
+)
+
+server = AgentServer()
+server.start()
 ```
+
+In this example:
+
+- `AgentSession` manages the conversation
+- `AgentServer` runs the agent service
+
+---
+
+## When to Use the API Reference
+
+Use this section when you want to:
+
+- understand how a specific class or component works
+- view example usage
+- explore available configuration options
+- integrate advanced functionality into your voice agent
+
+---
+
+## Next Step
+
+<Card title="Agent Session API" icon="cpu" href="/api-reference/agent-session">
+Explore the API for managing agent sessions.
+</Card>

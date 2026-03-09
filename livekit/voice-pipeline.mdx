@@ -1,0 +1,161 @@
+---
+title: Voice Pipeline
+description: Understand how voice data flows through a real-time AI voice agent.
+---
+
+## What is a Voice Pipeline?
+
+A **voice pipeline** describes how audio from a user is processed and transformed into a response from an AI system.
+
+Voice agents must convert spoken language into text, process it with an AI model, and then convert the response back into speech.
+
+This process happens in **real time** to create natural conversations.
+
+---
+
+## Voice Processing Flow
+
+The typical voice pipeline looks like this:
+
+```
+User Voice
+   ↓
+Audio Stream
+   ↓
+Speech-to-Text
+   ↓
+Language Model
+   ↓
+Tool Execution
+   ↓
+Text-to-Speech
+   ↓
+Audio Response
+```
+
+Each step transforms the input into a format that the next component can process.
+
+---
+
+## Step 1: User Voice
+
+The interaction begins when a user speaks into a device such as:
+
+- a laptop microphone
+- a mobile device
+- a headset
+- a smart speaker
+
+The audio is captured and sent into the communication system.
+
+---
+
+## Step 2: Audio Streaming
+
+LiveKit streams the audio in real time through a **LiveKit room**.
+
+This allows the voice agent to receive audio data as the user speaks.
+
+Live streaming reduces latency and enables natural conversation.
+
+---
+
+## Step 3: Speech-to-Text
+
+Speech-to-text (STT) converts the user's spoken words into text.
+
+Example:
+
+```
+User speaks:
+"What's the weather today?"
+
+Converted text:
+What's the weather today?
+```
+
+This text becomes the input for the language model.
+
+---
+
+## Step 4: Language Model Processing
+
+The language model analyzes the text and determines how to respond.
+
+It can:
+
+- understand intent
+- generate responses
+- decide whether a tool should be used
+
+Example reasoning:
+
+```
+User asks for weather
+↓
+Agent calls weather API
+↓
+API returns forecast
+```
+
+---
+
+## Step 5: Tool Execution
+
+If needed, the agent can call tools such as:
+
+- APIs
+- databases
+- scheduling systems
+- automation workflows
+
+These tools allow the agent to perform **real-world tasks**.
+
+---
+
+## Step 6: Text-to-Speech
+
+The agent's response is converted into audio using text-to-speech (TTS).
+
+Example:
+
+```
+Text response:
+"The weather today is sunny."
+
+Generated audio:
+🔊 spoken response
+```
+
+---
+
+## Step 7: Audio Response
+
+The generated audio is streamed back to the user through the LiveKit room.
+
+The user hears the response almost instantly.
+
+This creates a **natural conversational loop** between the user and the AI agent.
+
+---
+
+## Why This Pipeline Matters
+
+Voice agents must process data quickly to feel natural.
+
+The voice pipeline enables:
+
+- low-latency responses
+- real-time conversations
+- integration with AI systems
+- automated task execution
+
+This pipeline is the foundation of **modern voice assistants and conversational AI systems**.
+
+---
+
+## Next Step
+
+<Card title="Agent Session" icon="cpu" href="/livekit/agent-session">
+Learn how LiveKit agents manage real-time voice sessions.
+</Card>

@@ -1,97 +1,159 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation.. hi"
+title: Introduction
+description: Learn how to build realtime AI voice agents using Python and LiveKit.
 ---
 
-## Setting up
+## Build Voice Agents with Python
 
-Get your documentation site up and running in minutes.
+Welcome to **Explore with Elsa** 🐙
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+This guide teaches you how to build **realtime AI voice agents** using:
 
-## Make it yours
+- 🐍 Python
+- 🎤 LiveKit
+- 🧠 Language Models
+- 🔊 Speech technologies
 
-Design a docs site that looks great and empowers your users.
+By the end of this guide you will be able to build a **fully functional voice AI assistant**.
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+---
 
-## Create beautiful pages
+## Core Concepts
 
-Everything you need to create world-class documentation.
+Understand the technologies behind voice agents.
 
 <Columns cols={2}>
   <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
+    title="AI Agents"
+    icon="cpu"
+    href="/ai-agents/ai-agents-intro"
   >
-    Use MDX to style your docs pages.
+Learn how AI agents process input, reason with language models, and perform actions.
   </Card>
+
   <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
+    title="Voice AI Pipeline"
+    icon="mic"
+    href="/livekit/voice-pipeline"
   >
-    Add sample code to demonstrate how to use your product.
+Understand how voice flows through Speech-to-Text, LLM processing, and Text-to-Speech.
   </Card>
+
   <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
+    title="LiveKit Platform"
+    icon="waveform"
+    href="/livekit/livekit-intro"
   >
-    Display images and other media.
+Explore the realtime infrastructure used to build voice agents.
   </Card>
+
   <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
+    title="Agent Architecture"
+    icon="diagram-project"
+    href="/introduction/architecture"
   >
-    Write once and reuse across your docs.
+Learn how different components work together to power a voice agent.
   </Card>
 </Columns>
 
-## Need inspiration?
+---
+
+## Build Your First Voice Agent
+
+Follow step-by-step guides to create your own AI voice assistant.
+
+<Columns cols={2}>
+  <Card
+    title="Environment Setup"
+    icon="gear"
+    href="/build-agent/environment-setup"
+  >
+Install dependencies and configure your development environment.
+  </Card>
+
+  <Card
+    title="First Voice Agent"
+    icon="rocket"
+    href="/build-agent/first-agent"
+  >
+Create and run your first realtime voice agent.
+  </Card>
+
+  <Card
+    title="Adding Tools"
+    icon="toolbox"
+    href="/build-agent/adding-tools"
+  >
+Extend your agent with external tools and APIs.
+  </Card>
+
+  <Card
+    title="Deployment"
+    icon="cloud"
+    href="/deployment/deploy-livekit"
+  >
+Deploy your voice agent to production.
+  </Card>
+</Columns>
+
+---
+
+## Voice Agent Architecture
+
+A typical voice AI system processes audio through several stages.
+
+
+<div class="voice-flow">
+  <div class="voice-step">🎙 User Voice</div>
+  <div class="voice-step">📝 Speech-to-Text</div>
+  <div class="voice-step">🧠 Language Model</div>
+  <div class="voice-step">🛠 Tool Execution</div>
+  <div class="voice-step">🔊 Text-to-Speech</div>
+  <div class="voice-step">👂 Voice Response</div>
+</div>
+
+This pipeline enables agents to **listen, reason, and respond in realtime**.
+
+---
+
+## Advanced Topics
+
+Once you're comfortable with the basics, explore advanced features.
+
+<Columns cols={2}>
+  <Card
+    title="Turn Detection"
+    icon="ear-listen"
+    href="/advanced/turn-detection"
+  >
+Detect when users finish speaking so the agent responds naturally.
+  </Card>
+
+  <Card
+    title="Noise Cancellation"
+    icon="volume-xmark"
+    href="/advanced/noise-cancellation"
+  >
+Improve voice clarity in noisy environments.
+  </Card>
+
+  <Card
+    title="Streaming Responses"
+    icon="waveform-lines"
+    href="/advanced/streaming"
+  >
+Stream responses for faster and more natural conversations.
+  </Card>
+</Columns>
+
+---
+
+## Source Code
 
 <Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
+  title="GitHub Repository"
+  icon="github"
+  href="https://github.com/yourusername/voice-agent-docs"
 >
-  Browse our showcase of exceptional documentation sites.
+Explore the full documentation and examples on GitHub.
 </Card>

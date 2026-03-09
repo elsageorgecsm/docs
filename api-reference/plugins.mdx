@@ -1,0 +1,143 @@
+---
+title: Plugins API
+description: Reference documentation for plugins used in LiveKit voice agents.
+---
+
+## Overview
+
+Plugins extend the capabilities of a LiveKit voice agent by integrating external AI services and utilities.
+
+Using plugins, developers can connect their agents to different providers for:
+
+- speech-to-text (STT)
+- text-to-speech (TTS)
+- large language models (LLM)
+- voice activity detection
+- tool integrations
+
+The plugin system allows you to mix and match providers depending on your application needs.
+
+---
+
+## Why Plugins Are Useful
+
+Voice agents require multiple AI services to function properly.
+
+Plugins make it easy to integrate these services without rewriting your agent logic.
+
+For example, a plugin may provide:
+
+- speech recognition
+- voice synthesis
+- AI reasoning
+- conversational tools
+
+Instead of building these systems from scratch, plugins allow developers to plug external capabilities directly into the voice pipeline.
+
+---
+
+## Common Plugin Categories
+
+LiveKit plugins typically fall into several categories.
+
+### Language Model Plugins
+
+These plugins provide the AI reasoning engine used by the agent.
+
+Examples include:
+
+- OpenAI
+- Anthropic
+- Google AI
+
+These models process user requests and generate responses.
+
+---
+
+### Speech-to-Text Plugins
+
+Speech-to-text plugins convert spoken audio into text that the agent can process.
+
+Examples include:
+
+- Deepgram
+- AssemblyAI
+- Speechmatics
+
+These plugins allow the agent to understand user speech.
+
+---
+
+### Text-to-Speech Plugins
+
+Text-to-speech plugins convert generated responses into spoken audio.
+
+Examples include:
+
+- ElevenLabs
+- Cartesia
+- Resemble
+
+These plugins enable voice responses in conversations.
+
+---
+
+### Utility Plugins
+
+Some plugins provide additional capabilities such as:
+
+- voice activity detection
+- turn detection
+- language processing
+- tool integration
+
+Example utilities include:
+
+- Silero VAD
+- Turn detector
+
+These plugins help improve the natural flow of conversations.
+
+---
+
+## Example Plugin Usage
+
+Below is an example showing how plugins can be used with an agent session.
+
+```python
+from livekit.agents import AgentSession
+from livekit.plugins import openai, cartesia, assemblyai
+
+session = AgentSession(
+    llm=openai.LLM(model="gpt-4.1-mini"),
+    stt=assemblyai.STT(),
+    tts=cartesia.TTS()
+)
+```
+
+In this configuration:
+
+- OpenAI provides the language model
+- AssemblyAI performs speech recognition
+- Cartesia generates voice output
+
+---
+
+## Related APIs
+
+The following APIs are commonly used with plugins:
+
+- AgentSession
+- AgentServer
+- Voice Pipeline
+- Tool Calling
+
+These components work together to create a complete voice agent system.
+
+---
+
+## Next Step
+
+<Card title="Return to Guides" icon="book-open" href="/livekit/livekit-intro">
+Explore the guide section to learn how voice agents are built step-by-step.
+</Card>

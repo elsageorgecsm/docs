@@ -1,0 +1,129 @@
+---
+title: First Agent
+description: Build and run your first LiveKit voice agent.
+---
+
+## Building Your First Voice Agent
+
+In this section, we will create a **simple LiveKit voice agent** that can:
+
+- join a LiveKit room
+- listen to user speech
+- process messages
+- respond with generated output
+
+This example demonstrates the basic structure of a voice agent.
+
+---
+
+## Step 1: Create the Agent File
+
+Create a Python file called:
+
+```
+agent.py
+```
+
+This file will contain the logic for your voice agent.
+
+---
+
+## Step 2: Import Required Libraries
+
+Add the following imports.
+
+```python
+import asyncio
+from livekit.agents import AgentSession
+```
+
+These libraries help manage the agent session and handle real-time communication.
+
+---
+
+## Step 3: Create the Agent Session
+
+Define a simple agent session.
+
+```python
+session = AgentSession(
+    stt="speech_to_text_engine",
+    llm="language_model",
+    tts="text_to_speech_engine"
+)
+```
+
+This session connects the main components of a voice pipeline:
+
+- speech-to-text
+- language model
+- text-to-speech
+
+---
+
+## Step 4: Start the Agent
+
+Now start the session.
+
+```python
+session.start()
+```
+
+When the agent starts, it will connect to the LiveKit room and begin listening for audio input.
+
+---
+
+## Step 5: Run the Agent
+
+Run the agent using Python.
+
+```bash
+python agent.py
+```
+
+If everything is configured correctly, the agent will start and wait for incoming audio from users.
+
+---
+
+## What Happens Next?
+
+Once the agent is running, the following process occurs:
+
+```
+User joins LiveKit room
+   ↓
+User speaks
+   ↓
+Speech converted to text
+   ↓
+Language model processes request
+   ↓
+Response generated
+   ↓
+Text converted to speech
+   ↓
+Audio response returned to user
+```
+
+This loop creates a **real-time conversation between the user and the AI agent**.
+
+---
+
+## Improving the Agent
+
+This basic example can be expanded by adding:
+
+- tool calling
+- conversation memory
+- API integrations
+- better speech models
+
+These enhancements allow the agent to perform more complex tasks.
+
+---
+
+## Next Step
+
+<Card title="Adding Tools" icon="toolbox" href="/build-agent/adding-tools">
+Learn how to extend your voice agent with external tools and APIs.
+</Card>

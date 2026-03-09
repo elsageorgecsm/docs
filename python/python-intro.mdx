@@ -1,0 +1,180 @@
+---
+title: Python Introduction
+description: Learn the Python fundamentals required to build AI voice agents.
+---
+
+## Why Python?
+
+Python is one of the most widely used programming languages in **AI, machine learning, and automation**.
+
+It is especially popular for building AI systems because it is:
+
+- Easy to read and write
+- Supported by a large ecosystem of libraries
+- Widely used in AI and machine learning
+- Ideal for rapid development
+
+In this guide, Python will be used to **build and run our voice agent**.
+
+---
+
+## Installing Python
+
+Before starting, make sure Python is installed on your system.
+
+Check your installation by running:
+
+```bash
+python --version
+```
+
+or
+
+```bash
+python3 --version
+```
+
+You should see something similar to:
+
+```bash
+Python 3.10.5
+```
+
+If Python is not installed, download it from:
+
+<Card title="Download Python" icon="download" href="https://www.python.org/downloads/">
+Install Python from the official website.
+</Card>
+
+---
+
+## Running Your First Python Program
+
+Create a file called:
+
+```
+hello.py
+```
+
+Add the following code:
+
+```python
+print("Hello, Voice Agents!")
+```
+
+Run the program:
+
+```bash
+python hello.py
+```
+
+Output:
+
+```
+Hello, Voice Agents!
+```
+
+---
+
+## Python in Voice Agents
+
+In this documentation, Python will be used to:
+
+- run the voice agent server
+- process user messages
+- connect to AI models
+- call external APIs
+- integrate with LiveKit
+
+Python acts as the **brain of the voice agent**, coordinating different components such as speech recognition and language models.
+
+---
+
+## Example: Simple Voice Agent Logic
+
+Below is a simplified example of how Python might handle a voice message.
+
+```python
+def handle_message(user_message):
+    if "hello" in user_message.lower():
+        return "Hello! How can I help you today?"
+    
+    return "I'm not sure how to respond to that."
+
+response = handle_message("Hello agent")
+print(response)
+```
+
+Output:
+
+```
+Hello! How can I help you today?
+```
+
+---
+
+## Virtual Environments
+
+Python projects often use **virtual environments** to manage dependencies.
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+Mac / Linux:
+
+```bash
+source venv/bin/activate
+```
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Once activated, you can install project dependencies safely.
+
+---
+
+## Installing Packages
+
+Python uses **pip** to install packages.
+
+Example:
+
+```bash
+pip install livekit-agents
+```
+
+Packages allow Python to integrate with tools like:
+
+- speech recognition systems
+- language models
+- voice synthesis engines
+
+---
+
+## What You Will Learn Next
+
+In the following sections, we will cover key Python concepts used when building AI systems:
+
+- Variables and data types
+- Control flow
+- Functions
+- Classes
+- Asynchronous programming
+
+These concepts will help you understand how the **voice agent code works**.
+
+---
+
+## Next Step
+
+<Card title="Python Variables" icon="code" href="/python/variables">
+Learn how Python stores and manages data using variables.
+</Card>

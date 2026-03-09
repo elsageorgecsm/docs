@@ -1,0 +1,143 @@
+---
+title: Turn Detection
+description: Learn how voice agents detect when a user has finished speaking.
+---
+
+## What is Turn Detection?
+
+**Turn detection** determines when a speaker has finished talking so that another participant can respond.
+
+In voice conversations, communication happens in turns:
+
+```
+User speaks
+↓
+Agent listens
+↓
+User finishes speaking
+↓
+Agent responds
+```
+
+Turn detection allows voice agents to identify **the right moment to start responding**.
+
+---
+
+## Why Turn Detection Matters
+
+Without turn detection, a voice agent might:
+
+- interrupt the user while they are speaking
+- wait too long before responding
+- respond too early before the user finishes
+
+Proper turn detection makes conversations feel **natural and fluid**.
+
+---
+
+## How Turn Detection Works
+
+Turn detection systems analyze audio signals to determine when speech begins and ends.
+
+Typical indicators include:
+
+- pauses in speech
+- silence duration
+- voice activity detection
+- speech patterns
+
+Example:
+
+```
+User Speech
+"Can you book a meeting tomorrow..."
+
+Pause detected
+↓
+Turn detection triggered
+↓
+Agent processes request
+```
+
+---
+
+## Voice Activity Detection (VAD)
+
+One common method used in turn detection is **Voice Activity Detection (VAD)**.
+
+VAD identifies whether audio contains speech or silence.
+
+Example pipeline:
+
+```
+Incoming Audio
+↓
+Voice Activity Detection
+↓
+Speech detected
+↓
+Speech ends
+↓
+Turn detection triggered
+```
+
+Once speech stops for a defined duration, the system assumes the user has finished speaking.
+
+---
+
+## Turn Detection in Voice Agents
+
+In a voice agent system, turn detection usually happens before the speech-to-text stage.
+
+```
+User Voice
+↓
+Voice Activity Detection
+↓
+Turn Detection
+↓
+Speech-to-Text
+↓
+Language Model
+↓
+Text-to-Speech
+↓
+Voice Response
+```
+
+This ensures that the speech recognition system processes **complete user sentences**.
+
+---
+
+## Example Concept
+
+Below is a simplified concept of turn detection logic.
+
+```python
+def detect_turn(audio_stream):
+    if silence_detected(audio_stream):
+        return "User finished speaking"
+```
+
+In real systems, specialized audio models detect silence and speech boundaries.
+
+---
+
+## Best Practices
+
+When implementing turn detection in voice agents:
+
+- use reliable voice activity detection models
+- allow short pauses during natural speech
+- adjust silence thresholds carefully
+- test with real users
+
+These practices help improve the **natural flow of conversation**.
+
+---
+
+## Next Step
+
+<Card title="Streaming Responses" icon="waveform-lines" href="/advanced/streaming">
+Learn how streaming responses reduce latency in voice agents.
+</Card>

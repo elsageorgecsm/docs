@@ -1,0 +1,113 @@
+---
+title: Noise Cancellation
+description: Improve voice clarity in your agent by reducing background noise.
+---
+
+## What is Noise Cancellation?
+
+**Noise cancellation** removes unwanted background sounds from audio input.
+
+In voice applications, background noise can come from:
+
+- keyboards
+- traffic
+- fans
+- office chatter
+- microphone interference
+
+Noise cancellation helps ensure that speech recognition systems receive **clear audio signals**.
+
+---
+
+## Why Noise Cancellation Matters
+
+Speech recognition systems perform best when the input audio is clean.
+
+Without noise cancellation:
+
+- speech-to-text accuracy may decrease
+- the agent may misunderstand commands
+- conversations may feel less natural
+
+With noise cancellation, the voice agent can process speech more reliably.
+
+---
+
+## How Noise Cancellation Works
+
+Noise cancellation algorithms analyze incoming audio and separate:
+
+```
+Speech Signal
++
+Background Noise
+```
+
+The system then reduces or removes the background noise while preserving the speech.
+
+Result:
+
+```
+Clean Speech
+```
+
+This cleaned audio is then sent to the speech-to-text system.
+
+---
+
+## Noise Cancellation in Voice Pipelines
+
+In a typical voice pipeline, noise cancellation occurs early in the processing stage.
+
+```
+User Voice
+   ↓
+Noise Cancellation
+   ↓
+Speech-to-Text
+   ↓
+Language Model
+   ↓
+Text-to-Speech
+   ↓
+Voice Response
+```
+
+By filtering audio early, the system improves accuracy in later stages.
+
+---
+
+## Example Integration
+
+Many voice frameworks provide built-in noise cancellation plugins.
+
+Example concept:
+
+```python
+from livekit.plugins import noise_cancellation
+
+audio_stream = noise_cancellation.process(input_audio)
+```
+
+The cleaned audio can then be passed to the speech recognition system.
+
+---
+
+## Best Practices
+
+When building voice agents, consider these recommendations:
+
+- use high-quality microphones
+- apply noise filtering before speech recognition
+- test in real-world environments
+- handle varying noise levels
+
+These practices improve the reliability of voice interactions.
+
+---
+
+## Next Step
+
+<Card title="Turn Detection" icon="ear-listen" href="/advanced/turn-detection">
+Learn how voice agents detect when a user has finished speaking.
+</Card>

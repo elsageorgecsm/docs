@@ -1,0 +1,204 @@
+---
+title: Control Flow
+description: Learn how Python programs make decisions using conditions and loops.
+---
+
+## What is Control Flow?
+
+Control flow determines **how a program executes different pieces of code** depending on conditions.
+
+Instead of running every line sequentially, programs often need to:
+
+- make decisions
+- repeat tasks
+- respond to user input
+
+Control flow allows programs to behave **intelligently based on different situations**.
+
+---
+
+## Conditional Statements
+
+Conditional statements allow a program to **execute code only when a condition is true**.
+
+### if Statement
+
+```python
+user_message = "hello"
+
+if user_message == "hello":
+    print("Hello! How can I help you?")
+```
+
+Output:
+
+```
+Hello! How can I help you?
+```
+
+The code inside the `if` block only runs if the condition is true.
+
+---
+
+## if...else
+
+Sometimes you want to run **different code depending on the condition**.
+
+```python
+user_message = "hi"
+
+if user_message == "hello":
+    print("Hello there!")
+else:
+    print("I'm not sure what you mean.")
+```
+
+Output:
+
+```
+I'm not sure what you mean.
+```
+
+---
+
+## if...elif...else
+
+When there are multiple possible conditions, Python allows additional checks using `elif`.
+
+```python
+command = "weather"
+
+if command == "hello":
+    print("Hello!")
+elif command == "weather":
+    print("Today's weather is sunny.")
+else:
+    print("Command not recognized.")
+```
+
+---
+
+## Comparison Operators
+
+Conditions use comparison operators.
+
+| Operator | Meaning |
+|--------|--------|
+| `==` | equal to |
+| `!=` | not equal |
+| `>` | greater than |
+| `<` | less than |
+| `>=` | greater or equal |
+| `<=` | less or equal |
+
+Example:
+
+```python
+temperature = 30
+
+if temperature > 25:
+    print("It's warm today.")
+```
+
+---
+
+## Logical Operators
+
+Logical operators combine multiple conditions.
+
+| Operator | Meaning |
+|--------|--------|
+| `and` | both conditions must be true |
+| `or` | at least one condition must be true |
+| `not` | reverses a condition |
+
+Example:
+
+```python
+user_authenticated = True
+agent_active = True
+
+if user_authenticated and agent_active:
+    print("Agent ready to respond.")
+```
+
+---
+
+## Loops
+
+Loops allow programs to **repeat actions automatically**.
+
+### for Loop
+
+Used to iterate through a sequence.
+
+```python
+messages = ["Hello", "How are you?", "Goodbye"]
+
+for message in messages:
+    print(message)
+```
+
+Output:
+
+```
+Hello
+How are you?
+Goodbye
+```
+
+---
+
+### while Loop
+
+A `while` loop continues running as long as a condition is true.
+
+```python
+count = 0
+
+while count < 3:
+    print("Listening for user input...")
+    count += 1
+```
+
+Output:
+
+```
+Listening for user input...
+Listening for user input...
+Listening for user input...
+```
+
+---
+
+## Control Flow in Voice Agents
+
+Voice agents frequently use control flow to:
+
+- detect user intent
+- choose the correct response
+- trigger different tools
+- handle conversation logic
+
+Example:
+
+```python
+user_message = "book appointment"
+
+if "book" in user_message:
+    print("Opening booking system...")
+elif "weather" in user_message:
+    print("Fetching weather data...")
+else:
+    print("I'm not sure how to help with that.")
+```
+
+Control flow helps the agent **decide how to respond to different user inputs**.
+
+---
+
+## Next Step
+
+<Card title="Python Functions" icon="code" href="/python/functions">
+Learn how to organize Python code using reusable functions.
+</Card>

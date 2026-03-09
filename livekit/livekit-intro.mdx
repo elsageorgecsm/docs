@@ -1,0 +1,144 @@
+---
+title: LiveKit
+description: Learn how LiveKit enables real-time voice communication for AI agents.
+---
+
+
+<div style={{textAlign:"center", marginBottom:"30px"}}>
+
+<img
+  src="../images/LK_wordmark_lightbg.png"
+  alt="LiveKit Logo"
+  style={{ width: "220px" }}
+/>
+
+</div>
+
+## What is LiveKit?
+
+LiveKit is an open-source platform that enables **real-time audio and video communication** for applications.
+
+It provides the infrastructure needed to build systems such as:
+
+- voice assistants
+- video conferencing apps
+- real-time AI agents
+- streaming applications
+
+LiveKit is built on **WebRTC**, a technology designed for low-latency real-time communication.
+
+---
+
+## Why LiveKit for Voice Agents?
+
+Voice agents require fast and reliable communication between users and AI systems.
+
+LiveKit helps solve several challenges:
+
+- real-time audio streaming
+- low-latency communication
+- scalable infrastructure
+- handling multiple participants
+
+This makes it ideal for building **voice-enabled AI applications**.
+
+---
+
+## LiveKit Architecture
+
+A typical LiveKit setup includes several components.
+
+```
+User Device
+   ↓
+LiveKit Room
+   ↓
+Voice Agent
+   ↓
+Speech-to-Text
+   ↓
+Language Model
+   ↓
+Text-to-Speech
+   ↓
+Audio Response
+```
+
+In this architecture, LiveKit manages the **real-time communication layer** between users and the voice agent.
+
+---
+
+## Key Concepts in LiveKit
+
+### Rooms
+
+A **room** is a real-time communication space where participants connect.
+
+Participants can include:
+
+- users
+- voice agents
+- other services
+
+Each room allows participants to exchange audio, video, or data streams.
+
+---
+
+### Participants
+
+Participants are entities connected to a room.
+
+Examples:
+
+- a user speaking through a microphone
+- a voice agent listening and responding
+- an AI processing service
+
+---
+
+### Tracks
+
+Tracks represent media streams such as:
+
+- audio
+- video
+- data
+
+For voice agents, audio tracks are used to capture and transmit speech.
+
+---
+
+## How Voice Agents Use LiveKit
+
+When building a voice agent with LiveKit, the agent typically:
+
+1. Joins a LiveKit room  
+2. Listens to incoming audio from users  
+3. Sends audio to a speech-to-text system  
+4. Processes the text using an AI model  
+5. Converts the response to speech  
+6. Sends audio back to the room
+
+This creates a **real-time conversational experience**.
+
+---
+
+## Benefits of LiveKit
+
+LiveKit provides several advantages for voice AI systems:
+
+- low-latency communication
+- scalable architecture
+- open-source flexibility
+- integration with AI frameworks
+- support for real-time media streaming
+
+These capabilities make it a powerful platform for **building modern voice agents**.
+
+---
+
+## Next Step
+
+<Card title="Voice Pipeline" icon="waveform" href="/livekit/voice-pipeline">
+Learn how voice data flows through the AI voice pipeline.
+</Card>

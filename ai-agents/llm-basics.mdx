@@ -1,0 +1,125 @@
+---
+title: LLM Basics
+description: Learn how large language models power modern AI agents.
+---
+
+## What is a Large Language Model?
+
+A **Large Language Model (LLM)** is an artificial intelligence system trained to understand and generate human language.
+
+LLMs analyze massive amounts of text data and learn patterns in language. Using these patterns, they can generate responses to prompts, answer questions, and assist users in conversations.
+
+Modern AI systems such as assistants, chatbots, and voice agents rely heavily on LLMs.
+
+---
+
+## What Can LLMs Do?
+
+Large language models can perform many tasks including:
+
+- answering questions
+- generating text
+- summarizing documents
+- translating languages
+- writing code
+- assisting with research
+
+Example prompt:
+
+```
+Explain how voice agents work.
+```
+
+The LLM can generate a detailed explanation based on its training.
+
+---
+
+## Tokens
+
+Before processing text, LLMs break input into smaller pieces called **tokens**.
+
+Example:
+
+```
+Sentence:
+Hello world!
+
+Tokens:
+["Hello", "world", "!"]
+```
+
+Tokens help the model process language efficiently.
+
+---
+
+## How LLMs Generate Responses
+
+LLMs generate text by predicting the **next most likely word** in a sentence.
+
+Example:
+
+```
+Input:
+"The sky is"
+
+Prediction:
+"blue"
+```
+
+By repeatedly predicting the next word, the model can generate full sentences and paragraphs.
+
+---
+
+## LLMs in AI Agents
+
+In an AI agent system, the LLM acts as the **reasoning engine**.
+
+It helps the agent:
+
+- understand user intent
+- decide what action to take
+- generate natural responses
+
+Example workflow:
+
+```
+User Input
+   ↓
+LLM interprets intent
+   ↓
+Agent decides next step
+   ↓
+Tool or API executes action
+   ↓
+LLM generates response
+```
+
+---
+
+## LLMs in Voice Agents
+
+In a voice agent architecture, the LLM sits in the center of the voice pipeline.
+
+```
+User Voice
+   ↓
+Speech-to-Text
+   ↓
+LLM Processing
+   ↓
+Tool Execution
+   ↓
+Text-to-Speech
+   ↓
+Voice Response
+```
+
+The LLM determines how the system should respond to the user's request.
+
+---
+
+## Next Step
+
+<Card title="Tool Calling" icon="toolbox" href="/ai-agents/tool-calling">
+Learn how AI agents use tools and APIs to perform real-world tasks.
+</Card>

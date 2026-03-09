@@ -1,0 +1,183 @@
+---
+title: Variables
+description: Learn how Python stores and manages data using variables.
+---
+
+## What is a Variable?
+
+A **variable** is used to store data in a program.
+
+It acts as a **named container for information** that your program can use later.
+
+Example:
+
+```python
+name = "Elsa"
+age = 30
+is_agent_active = True
+```
+
+Here:
+
+- `name` stores text  
+- `age` stores a number  
+- `is_agent_active` stores a boolean value  
+
+---
+
+## Python Variable Rules
+
+When naming variables in Python:
+
+✔ Names must start with a letter or underscore  
+✔ Names can contain letters, numbers, and underscores  
+✔ Names are **case-sensitive**
+
+Examples:
+
+```python
+user_name = "Alice"
+voiceAgent = "Enabled"
+_agent_status = True
+```
+
+Invalid examples:
+
+```python
+2name = "Alice"   # cannot start with number
+user-name = "Bob" # hyphens not allowed
+```
+
+---
+
+## Common Data Types
+
+Python supports several built-in data types.
+
+### Strings
+
+Strings store text.
+
+```python
+agent_name = "Voice Assistant"
+```
+
+### Integers
+
+Integers store whole numbers.
+
+```python
+users_connected = 12
+```
+
+### Floats
+
+Floats store decimal numbers.
+
+```python
+response_time = 1.25
+```
+
+### Booleans
+
+Booleans store **True or False** values.
+
+```python
+agent_running = True
+```
+
+---
+
+## Printing Variables
+
+You can display variables using the `print()` function.
+
+```python
+name = "Elsa"
+print(name)
+```
+
+Output:
+
+```
+Elsa
+```
+
+You can also combine variables with text.
+
+```python
+agent = "VoiceBot"
+print("Agent name:", agent)
+```
+
+Output:
+
+```
+Agent name: VoiceBot
+```
+
+---
+
+## Updating Variables
+
+Variables can be updated anytime.
+
+```python
+messages = 5
+messages = 6
+
+print(messages)
+```
+
+Output:
+
+```
+6
+```
+
+The latest assigned value replaces the previous one.
+
+---
+
+## Multiple Variables
+
+You can assign multiple variables at once.
+
+```python
+name, role, active = "Elsa", "Developer", True
+
+print(name)
+print(role)
+print(active)
+```
+
+---
+
+## Variables in Voice Agents
+
+Variables are commonly used in voice agents to store:
+
+- user input
+- conversation context
+- agent responses
+- API results
+
+Example:
+
+```python
+user_message = "Book a meeting tomorrow"
+
+agent_response = "Your meeting has been scheduled."
+
+print(agent_response)
+```
+
+Variables help the agent **track and process information during conversations**.
+
+---
+
+## Next Step
+
+<Card title="Control Flow" icon="code" href="/python/control-flow">
+Learn how Python programs make decisions using conditions and logic.
+</Card>

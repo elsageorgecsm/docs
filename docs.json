@@ -1,122 +1,153 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Voice Agents with Python",
+  "stylesheets": ["/style.css"],
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Guide",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introduction",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "introduction/overview",
+              "introduction/architecture"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Python Foundations",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "python/python-intro",
+              "python/variables",
+              "python/control-flow",
+              "python/functions",
+              "python/classes",
+              "python/async-python"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "AI Agents",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "ai-agents/ai-agents-intro",
+              "ai-agents/llm-basics",
+              "ai-agents/tool-calling"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "LiveKit Voice Agents",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "livekit/livekit-intro",
+              "livekit/voice-pipeline",
+              "livekit/agent-session"
+            ]
+          },
+          {
+            "group": "Build Your Agent",
+            "pages": [
+              "build-agent/environment-setup",
+              "build-agent/first-agent",
+              "build-agent/adding-tools"
+            ]
+          },
+          {
+            "group": "Advanced Topics",
+            "pages": [
+              "advanced/noise-cancellation",
+              "advanced/turn-detection",
+              "advanced/streaming"
+            ]
+          },
+          {
+            "group": "Deployment",
+            "pages": [
+              "deployment/run-local",
+              "deployment/deploy-livekit"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "LiveKit Agents API",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/agent-session",
+              "api-reference/agent-server",
+              "api-reference/plugins"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Cheat Sheets",
+        "groups": [
           {
-            "group": "Endpoint examples",
+            "group": "Developer Cheat Sheets",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "cheatsheets/git-cheatsheet",
+              "cheatsheets/vscode-cheatsheet"
             ]
           }
         ]
       }
-    ],
-    "global": {
+    ],"global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Python Docs",
+          "href": "https://docs.python.org/3/",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Livekit Docs",
+          "href": "https://docs.livekit.io/intro/overview/",
+          "icon": "book-open-cover"
         }
       ]
     }
-  },
+  }, 
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo.png",
+    "dark": "/logo/logo.png",
+    "href": "/"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "GitHub",
+        "href": "https://github.com/yourusername/voice-agent-docs"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "View Project",
+      "href": "https://github.com/yourusername/voice-agent-docs"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "github": "https://github.com/elsageorgecsm",
+      "linkedin": "https://www.linkedin.com/in/elsa-george-91724268/"
     }
   }
 }

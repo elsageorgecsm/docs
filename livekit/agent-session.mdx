@@ -1,0 +1,129 @@
+---
+title: Agent Session
+description: Understand how a LiveKit agent manages real-time voice interactions.
+---
+
+## What is an Agent Session?
+
+An **Agent Session** represents the runtime environment where a voice agent processes user interactions in real time.
+
+It manages the complete lifecycle of a conversation including:
+
+- receiving user audio
+- converting speech to text
+- processing the request with an AI model
+- generating responses
+- converting responses back to speech
+
+The agent session acts as the **central controller** for the voice pipeline.
+
+---
+
+## Role of the Agent Session
+
+The agent session coordinates multiple components that work together during a conversation.
+
+Typical responsibilities include:
+
+- handling incoming audio streams
+- managing speech-to-text processing
+- sending user messages to the language model
+- executing tools when needed
+- generating voice responses
+- streaming audio back to the user
+
+This orchestration allows voice agents to operate smoothly during live conversations.
+
+---
+
+## Agent Session Workflow
+
+A simplified workflow for an agent session looks like this:
+
+```
+User joins LiveKit room
+   ↓
+Agent session starts
+   ↓
+Audio stream received
+   ↓
+Speech-to-Text converts audio to text
+   ↓
+Language model processes message
+   ↓
+Agent executes tools if needed
+   ↓
+Text-to-Speech generates response
+   ↓
+Audio response sent back to user
+```
+
+The session remains active while the conversation continues.
+
+---
+
+## Example Agent Session in Python
+
+Below is a simplified example of how an agent session might be created.
+
+```python
+from livekit.agents import AgentSession
+
+session = AgentSession(
+    stt="speech_to_text_engine",
+    llm="language_model",
+    tts="text_to_speech_engine"
+)
+
+session.start()
+```
+
+In this example, the agent session connects:
+
+- a speech-to-text system
+- a language model
+- a text-to-speech engine
+
+Together they create a working voice pipeline.
+
+---
+
+## Session Lifecycle
+
+An agent session typically follows these stages:
+
+1. **Initialization**  
+   The voice agent connects to a LiveKit room.
+
+2. **Listening**  
+   The agent listens for user audio input.
+
+3. **Processing**  
+   The agent converts speech to text and processes the request.
+
+4. **Responding**  
+   The response is generated and converted to speech.
+
+5. **Termination**  
+   The session ends when the conversation finishes.
+
+---
+
+## Why Agent Sessions Matter
+
+Agent sessions help manage real-time conversations by:
+
+- coordinating different AI components
+- maintaining conversation context
+- ensuring low-latency responses
+- supporting multiple users simultaneously
+
+Without a session system, managing real-time voice interactions would be difficult.
+
+---
+
+## Next Step
+
+<Card title="Environment Setup" icon="gear" href="/build-agent/environment-setup">
+Set up your development environment to start building a LiveKit voice agent.
+</Card>

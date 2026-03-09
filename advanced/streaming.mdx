@@ -1,0 +1,130 @@
+---
+title: Streaming Responses
+description: Learn how streaming responses reduce latency in real-time voice agents.
+---
+
+## What is Streaming?
+
+**Streaming** allows an AI system to send responses **gradually as they are generated**, instead of waiting for the entire response to finish.
+
+This is important for voice agents because it reduces the delay between a user's request and the agent's response.
+
+Without streaming, the system would need to:
+
+```
+Process entire response
+↓
+Convert to audio
+↓
+Send audio to user
+```
+
+This can create noticeable delays.
+
+---
+
+## Why Streaming Matters
+
+Streaming improves the experience of real-time conversations by:
+
+- reducing response latency
+- making conversations feel more natural
+- allowing the agent to begin speaking sooner
+- improving responsiveness in voice systems
+
+Users perceive streaming systems as **faster and more interactive**.
+
+---
+
+## Streaming Workflow
+
+A typical streaming workflow looks like this:
+
+```
+User Voice
+↓
+Speech-to-Text
+↓
+LLM begins generating response
+↓
+Response streamed token-by-token
+↓
+Text-to-Speech processes chunks
+↓
+Audio streamed to user
+```
+
+Instead of waiting for a full response, the system **starts delivering output immediately**.
+
+---
+
+## Example Concept
+
+Below is a simplified Python example showing how streaming might work.
+
+```python
+def stream_response(text_chunks):
+    for chunk in text_chunks:
+        print(chunk)
+```
+
+Example output:
+
+```
+Hello...
+how can I help you today?
+```
+
+Each chunk is sent as soon as it is generated.
+
+---
+
+## Streaming in Voice Agents
+
+In voice systems, streaming often occurs in two stages:
+
+### LLM Streaming
+
+The language model generates text progressively.
+
+Example:
+
+```
+Response generated:
+Hello → Hello there → Hello there! How → Hello there! How can I help?
+```
+
+### Audio Streaming
+
+Text-to-speech converts each chunk into audio and streams it back to the user.
+
+```
+Generated Text
+↓
+Text-to-Speech
+↓
+Audio Stream
+↓
+User hears response immediately
+```
+
+---
+
+## Benefits of Streaming
+
+Streaming helps voice agents provide:
+
+- faster responses
+- smoother conversations
+- lower perceived latency
+- better real-time interaction
+
+These improvements are essential for building **high-quality conversational AI systems**.
+
+---
+
+## Next Step
+
+<Card title="Run Agent Locally" icon="terminal" href="/deployment/run-local">
+Learn how to run your voice agent locally for testing and development.
+</Card>
