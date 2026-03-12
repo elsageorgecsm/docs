@@ -2,8 +2,7 @@
 title: "Common Voice Ai Errors"
 ---
 
-
-This page documents common errors encountered in Voice AI systems.  
+This page documents common errors encountered in Voice AI systems.\
 Voice AI pipelines consist of multiple components, and failures can occur at any layer.
 
 Typical pipeline:
@@ -14,7 +13,7 @@ Understanding the failing layer helps quickly isolate issues.
 
 ---
 
-# 1️⃣ Audio Capture Errors
+# Audio Capture Errors
 
 ### Microphone Permission Denied
 
@@ -25,7 +24,7 @@ Understanding the failing layer helps quickly isolate issues.
 
 **Example**
 
-```
+```text
 DOMException: Permission denied
 ```
 
@@ -45,7 +44,7 @@ DOMException: Permission denied
 
 **Example**
 
-```
+```text
 No audio frames received
 ```
 
@@ -65,7 +64,7 @@ No audio frames received
 
 **Example**
 
-```
+```text
 Unsupported audio format
 ```
 
@@ -73,7 +72,7 @@ Unsupported audio format
 
 Convert audio to supported format such as:
 
-```
+```text
 PCM
 16kHz mono
 WAV
@@ -89,7 +88,7 @@ STT model requires specific sample rate.
 
 **Example**
 
-```
+```text
 Invalid sample rate: expected 16000
 ```
 
@@ -107,7 +106,7 @@ Another application is using the microphone.
 
 **Example**
 
-```
+```text
 Audio device already in use
 ```
 
@@ -117,7 +116,7 @@ Close other applications using the microphone.
 
 ---
 
-# 2️⃣ Voice Activity Detection (VAD) Errors
+# Voice Activity Detection (VAD) Errors
 
 ### Speech Not Detected
 
@@ -128,7 +127,7 @@ Close other applications using the microphone.
 
 **Example**
 
-```
+```text
 VAD: no speech detected
 ```
 
@@ -147,7 +146,7 @@ Adjust VAD threshold.
 
 **Example**
 
-```
+```text
 VAD triggered by noise
 ```
 
@@ -165,7 +164,7 @@ Silence detection triggered too early.
 
 **Example**
 
-```
+```text
 Speech segment ended prematurely
 ```
 
@@ -183,7 +182,7 @@ Noise causing VAD to remain active.
 
 **Example**
 
-```
+```text
 Speech segment never closed
 ```
 
@@ -193,7 +192,7 @@ Tune VAD parameters.
 
 ---
 
-# 3️⃣ Streaming Errors
+# Streaming Errors
 
 ### Audio Stream Interrupted
 
@@ -204,7 +203,7 @@ Tune VAD parameters.
 
 **Example**
 
-```
+```text
 Audio stream interrupted
 ```
 
@@ -222,7 +221,7 @@ Audio frames arriving faster than processing.
 
 **Example**
 
-```
+```text
 Audio buffer overflow
 ```
 
@@ -240,7 +239,7 @@ Downstream services slower than input.
 
 **Example**
 
-```
+```text
 Stream backpressure detected
 ```
 
@@ -258,7 +257,7 @@ No audio frames received.
 
 **Example**
 
-```
+```text
 Stream timeout
 ```
 
@@ -268,7 +267,7 @@ Send keepalive packets.
 
 ---
 
-# 4️⃣ Speech-to-Text (STT) Errors
+# Speech-to-Text (STT) Errors
 
 ### STT Model Not Found
 
@@ -278,7 +277,7 @@ Invalid model name.
 
 **Example**
 
-```
+```text
 404 STT model not found
 ```
 
@@ -296,7 +295,7 @@ Insufficient speech input.
 
 **Example**
 
-```
+```text
 Audio duration too short
 ```
 
@@ -314,7 +313,7 @@ STT model cannot decode format.
 
 **Example**
 
-```
+```text
 Unsupported codec
 ```
 
@@ -332,7 +331,7 @@ Large audio payload or slow model.
 
 **Example**
 
-```
+```text
 STT request timeout
 ```
 
@@ -350,7 +349,7 @@ Speech unclear or noisy.
 
 **Example**
 
-```
+```text
 Low transcription confidence
 ```
 
@@ -360,7 +359,7 @@ Improve audio quality.
 
 ---
 
-# 5️⃣ Semantic / Intent Errors
+# Semantic / Intent Errors
 
 ### Intent Not Recognized
 
@@ -370,7 +369,7 @@ User input unclear.
 
 **Example**
 
-```
+```text
 Intent classification failed
 ```
 
@@ -388,7 +387,7 @@ Entities not detected in text.
 
 **Example**
 
-```
+```text
 Missing required entity
 ```
 
@@ -406,7 +405,7 @@ User query matches multiple intents.
 
 **Example**
 
-```
+```text
 Intent ambiguity detected
 ```
 
@@ -414,9 +413,7 @@ Intent ambiguity detected
 
 Ask clarification question.
 
----
-
-# 6️⃣ LLM Errors
+# LLM Errors
 
 ### Context Length Exceeded
 
@@ -426,7 +423,7 @@ Prompt exceeds token limit.
 
 **Example**
 
-```
+```text
 Context length exceeded
 ```
 
@@ -444,7 +441,7 @@ External API failure.
 
 **Example**
 
-```
+```text
 Agent tool execution failed
 ```
 
@@ -462,7 +459,7 @@ Slow model inference.
 
 **Example**
 
-```
+```text
 LLM response timeout
 ```
 
@@ -480,7 +477,7 @@ Incorrect parameters passed to tool.
 
 **Example**
 
-```
+```text
 Tool argument validation failed
 ```
 
@@ -490,7 +487,7 @@ Validate schema.
 
 ---
 
-# 7️⃣ Text-to-Speech (TTS) Errors
+# Text-to-Speech (TTS) Errors
 
 ### Voice Not Found
 
@@ -500,7 +497,7 @@ Invalid voice ID.
 
 **Example**
 
-```
+```text
 Voice ID not found
 ```
 
@@ -518,7 +515,7 @@ Invalid text or model failure.
 
 **Example**
 
-```
+```text
 TTS synthesis failed
 ```
 
@@ -536,7 +533,7 @@ WebSocket closed.
 
 **Example**
 
-```
+```text
 TTS stream closed unexpectedly
 ```
 
@@ -554,7 +551,7 @@ Unsupported output format.
 
 **Example**
 
-```
+```text
 Audio encoding failed
 ```
 
@@ -564,7 +561,7 @@ Change output codec.
 
 ---
 
-# 8️⃣ WebRTC Errors
+# WebRTC Errors
 
 ### ICE Connection Failed
 
@@ -574,7 +571,7 @@ Peer connection failed.
 
 **Example**
 
-```
+```text
 ICE connection failed
 ```
 
@@ -592,7 +589,7 @@ Media track not attached.
 
 **Example**
 
-```
+```text
 No audio track received
 ```
 
@@ -610,7 +607,7 @@ Incompatible codecs.
 
 **Example**
 
-```
+```text
 SDP negotiation failed
 ```
 
@@ -628,7 +625,7 @@ Encryption negotiation failure.
 
 **Example**
 
-```
+```text
 DTLS handshake failed
 ```
 
@@ -638,7 +635,7 @@ Check certificates.
 
 ---
 
-# 9️⃣ TURN / STUN Errors
+# TURN / STUN Errors
 
 ### TURN Authentication Failed
 
@@ -648,7 +645,7 @@ Invalid credentials.
 
 **Example**
 
-```
+```text
 TURN authentication failed
 ```
 
@@ -666,7 +663,7 @@ Network blocked.
 
 **Example**
 
-```
+```text
 STUN timeout
 ```
 
@@ -684,7 +681,7 @@ TURN server capacity exceeded.
 
 **Example**
 
-```
+```text
 TURN relay allocation failed
 ```
 
@@ -694,7 +691,7 @@ Scale TURN servers.
 
 ---
 
-# 🔟 Network Errors
+# Network Errors
 
 ### High Latency
 
@@ -704,7 +701,7 @@ Network congestion.
 
 **Example**
 
-```
+```text
 High audio latency detected
 ```
 
@@ -722,7 +719,7 @@ Unstable network.
 
 **Example**
 
-```
+```text
 Audio packet loss detected
 ```
 
@@ -740,7 +737,7 @@ Packets arriving out of order.
 
 **Example**
 
-```
+```text
 Jitter buffer overflow
 ```
 
@@ -750,7 +747,7 @@ Tune jitter buffer.
 
 ---
 
-# 1️⃣1️⃣ Output Errors
+# Output Errors
 
 ### Audio Playback Failed
 
@@ -760,7 +757,7 @@ Browser audio output failure.
 
 **Example**
 
-```
+```text
 Audio playback failed
 ```
 
@@ -778,7 +775,7 @@ Invalid audio output device.
 
 **Example**
 
-```
+```text
 Output device unavailable
 ```
 
