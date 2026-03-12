@@ -1,0 +1,272 @@
+---
+title: "Common Api Errors"
+---
+
+1️⃣ Authentication Errors
+
+## 401 Unauthorized
+
+**Reason**
+
+- Missing API key
+- Invalid API key
+- Expired token
+- Wrong Authorization header
+
+Example
+
+```text
+401 Unauthorized
+Invalid API key
+```
+
+**Fix**
+
+- Verify API key
+- Ensure header format is correct
+
+```text
+Authorization: Bearer API_KEY
+```
+
+- Check token expiration
+
+---
+
+## 403 Forbidden
+
+**Reason**
+
+- API key does not have permission
+- Access blocked by service
+- IP restriction enabled
+
+Example
+
+```text
+403 Forbidden
+Access denied
+```
+
+**Fix**
+
+- Check API permissions
+- Verify account plan
+- Check IP allowlist
+
+---
+
+# 2️⃣ Rate Limiting Errors
+
+## 429 Too Many Requests
+
+**Reason**
+
+- Exceeded request limit
+- Burst traffic
+- Too many concurrent requests
+
+Example
+
+```text
+429 Rate limit exceeded
+```
+
+**Fix**
+
+- Implement retry with exponential backoff
+- Reduce request frequency
+- Use batching or streaming
+
+Example retry strategy
+
+```text
+retry_after = 2^attempt seconds
+```
+
+---
+
+# 3️⃣ Input / Request Errors
+
+## 400 Bad Request
+
+**Reason**
+
+- Invalid request format
+- Missing required fields
+- Incorrect JSON structure
+- Invalid parameter values
+
+Example
+
+```text
+400 Bad Request
+Missing field: audio_url
+```
+
+**Fix**
+
+- Validate request payload
+- Ensure JSON formatting
+- Check API documentation
+
+---
+
+## 422 Unprocessable Entity
+
+**Reason**
+
+- Request format correct but **semantic issue**
+
+Examples
+
+- Unsupported audio format
+- Text too long
+- Invalid language code
+
+Example
+
+```text
+422 Unsupported audio format
+```
+
+**Fix**
+
+- Convert input format
+- Check parameter limits
+- Validate content type
+
+---
+
+# 4️⃣ Resource Errors
+
+## 404 Not Found
+
+**Reason**
+
+- Wrong endpoint
+- Resource ID not found
+- Deleted resource
+
+Example
+
+```text
+404 model not found
+```
+
+**Fix**
+
+- Verify endpoint path
+- Check resource ID
+- Confirm API version
+
+---
+
+## 409 Conflict
+
+**Reason**
+
+- Resource already exists
+- Concurrent update conflict
+
+Example
+
+```text
+409 session already exists
+```
+
+**Fix**
+
+- Use unique identifiers
+- Retry request
+
+---
+
+# 5️⃣ Server Errors
+
+## 500 Internal Server Error
+
+**Reason**
+
+- Server bug
+- Unexpected processing failure
+
+Example
+
+```text
+500 internal error
+```
+
+**Fix**
+
+- Retry request
+- Check API status page
+- Contact provider if persistent
+
+---
+
+## 502 Bad Gateway
+
+**Reason**
+
+- Upstream service failure
+- Proxy issue
+- Backend unavailable
+
+Example
+
+```text
+502 upstream service unavailable
+```
+
+**Fix**
+
+- Retry request
+- Check service health
+
+---
+
+## 503 Service Unavailable
+
+**Reason**
+
+- Server overloaded
+- Maintenance
+- Temporary outage
+
+Example
+
+```text
+503 service unavailable
+```
+
+**Fix**
+
+- Retry with backoff
+- Monitor status page
+
+---
+
+# 6️⃣ Timeout Errors
+
+## 504 Gateway Timeout
+
+**Reason**
+
+- Request processing too slow
+- Network latency
+- Model processing delay
+
+Example
+
+```text
+504 request timeout
+```
+
+**Fix**
+
+- Increase timeout
+- Optimize request size
+- Retry request
+
+---

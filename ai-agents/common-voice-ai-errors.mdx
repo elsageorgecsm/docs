@@ -1,0 +1,801 @@
+---
+title: "Common Voice Ai Errors"
+---
+
+
+This page documents common errors encountered in Voice AI systems.  
+Voice AI pipelines consist of multiple components, and failures can occur at any layer.
+
+Typical pipeline:
+
+Audio Capture → VAD → Streaming → STT → Semantic Processing → LLM → Tools → TTS → WebRTC → Network → Output
+
+Understanding the failing layer helps quickly isolate issues.
+
+---
+
+# 1️⃣ Audio Capture Errors
+
+### Microphone Permission Denied
+
+**Reason**
+
+- Browser microphone permission not granted
+- OS-level microphone access disabled
+
+**Example**
+
+```
+DOMException: Permission denied
+```
+
+**Fix**
+
+- Enable microphone permissions in browser settings
+- Verify OS-level microphone access
+
+---
+
+### No Audio Input Detected
+
+**Reason**
+
+- Microphone not connected
+- Incorrect input device selected
+
+**Example**
+
+```
+No audio frames received
+```
+
+**Fix**
+
+- Select correct microphone
+- Test microphone input locally
+
+---
+
+### Unsupported Audio Format
+
+**Reason**
+
+- Unsupported codec
+- Invalid sample rate
+
+**Example**
+
+```
+Unsupported audio format
+```
+
+**Fix**
+
+Convert audio to supported format such as:
+
+```
+PCM
+16kHz mono
+WAV
+```
+
+---
+
+### Audio Sample Rate Mismatch
+
+**Reason**
+
+STT model requires specific sample rate.
+
+**Example**
+
+```
+Invalid sample rate: expected 16000
+```
+
+**Fix**
+
+Resample audio before sending.
+
+---
+
+### Audio Device Busy
+
+**Reason**
+
+Another application is using the microphone.
+
+**Example**
+
+```
+Audio device already in use
+```
+
+**Fix**
+
+Close other applications using the microphone.
+
+---
+
+# 2️⃣ Voice Activity Detection (VAD) Errors
+
+### Speech Not Detected
+
+**Reason**
+
+- Low microphone gain
+- VAD sensitivity too high
+
+**Example**
+
+```
+VAD: no speech detected
+```
+
+**Fix**
+
+Adjust VAD threshold.
+
+---
+
+### False Speech Trigger
+
+**Reason**
+
+- Background noise
+- Echo
+
+**Example**
+
+```
+VAD triggered by noise
+```
+
+**Fix**
+
+Enable noise suppression.
+
+---
+
+### Early Speech Cutoff
+
+**Reason**
+
+Silence detection triggered too early.
+
+**Example**
+
+```
+Speech segment ended prematurely
+```
+
+**Fix**
+
+Increase silence timeout.
+
+---
+
+### Continuous Speech Detected
+
+**Reason**
+
+Noise causing VAD to remain active.
+
+**Example**
+
+```
+Speech segment never closed
+```
+
+**Fix**
+
+Tune VAD parameters.
+
+---
+
+# 3️⃣ Streaming Errors
+
+### Audio Stream Interrupted
+
+**Reason**
+
+- Network interruption
+- Client disconnect
+
+**Example**
+
+```
+Audio stream interrupted
+```
+
+**Fix**
+
+Reconnect stream.
+
+---
+
+### Streaming Buffer Overflow
+
+**Reason**
+
+Audio frames arriving faster than processing.
+
+**Example**
+
+```
+Audio buffer overflow
+```
+
+**Fix**
+
+Increase buffer size.
+
+---
+
+### Streaming Backpressure
+
+**Reason**
+
+Downstream services slower than input.
+
+**Example**
+
+```
+Stream backpressure detected
+```
+
+**Fix**
+
+Throttle input stream.
+
+---
+
+### Stream Timeout
+
+**Reason**
+
+No audio frames received.
+
+**Example**
+
+```
+Stream timeout
+```
+
+**Fix**
+
+Send keepalive packets.
+
+---
+
+# 4️⃣ Speech-to-Text (STT) Errors
+
+### STT Model Not Found
+
+**Reason**
+
+Invalid model name.
+
+**Example**
+
+```
+404 STT model not found
+```
+
+**Fix**
+
+Verify model identifier.
+
+---
+
+### Audio Too Short
+
+**Reason**
+
+Insufficient speech input.
+
+**Example**
+
+```
+Audio duration too short
+```
+
+**Fix**
+
+Increase minimum audio duration.
+
+---
+
+### Unsupported Audio Codec
+
+**Reason**
+
+STT model cannot decode format.
+
+**Example**
+
+```
+Unsupported codec
+```
+
+**Fix**
+
+Convert audio before sending.
+
+---
+
+### STT Processing Timeout
+
+**Reason**
+
+Large audio payload or slow model.
+
+**Example**
+
+```
+STT request timeout
+```
+
+**Fix**
+
+Chunk audio stream.
+
+---
+
+### STT Confidence Too Low
+
+**Reason**
+
+Speech unclear or noisy.
+
+**Example**
+
+```
+Low transcription confidence
+```
+
+**Fix**
+
+Improve audio quality.
+
+---
+
+# 5️⃣ Semantic / Intent Errors
+
+### Intent Not Recognized
+
+**Reason**
+
+User input unclear.
+
+**Example**
+
+```
+Intent classification failed
+```
+
+**Fix**
+
+Improve prompt or training data.
+
+---
+
+### Entity Extraction Failure
+
+**Reason**
+
+Entities not detected in text.
+
+**Example**
+
+```
+Missing required entity
+```
+
+**Fix**
+
+Improve NLU parsing.
+
+---
+
+### Ambiguous Intent
+
+**Reason**
+
+User query matches multiple intents.
+
+**Example**
+
+```
+Intent ambiguity detected
+```
+
+**Fix**
+
+Ask clarification question.
+
+---
+
+# 6️⃣ LLM Errors
+
+### Context Length Exceeded
+
+**Reason**
+
+Prompt exceeds token limit.
+
+**Example**
+
+```
+Context length exceeded
+```
+
+**Fix**
+
+Trim conversation history.
+
+---
+
+### Tool Call Failed
+
+**Reason**
+
+External API failure.
+
+**Example**
+
+```
+Agent tool execution failed
+```
+
+**Fix**
+
+Retry tool execution.
+
+---
+
+### LLM Response Timeout
+
+**Reason**
+
+Slow model inference.
+
+**Example**
+
+```
+LLM response timeout
+```
+
+**Fix**
+
+Increase timeout.
+
+---
+
+### Invalid Tool Arguments
+
+**Reason**
+
+Incorrect parameters passed to tool.
+
+**Example**
+
+```
+Tool argument validation failed
+```
+
+**Fix**
+
+Validate schema.
+
+---
+
+# 7️⃣ Text-to-Speech (TTS) Errors
+
+### Voice Not Found
+
+**Reason**
+
+Invalid voice ID.
+
+**Example**
+
+```
+Voice ID not found
+```
+
+**Fix**
+
+Check available voices.
+
+---
+
+### TTS Generation Failed
+
+**Reason**
+
+Invalid text or model failure.
+
+**Example**
+
+```
+TTS synthesis failed
+```
+
+**Fix**
+
+Retry generation.
+
+---
+
+### TTS Streaming Interrupted
+
+**Reason**
+
+WebSocket closed.
+
+**Example**
+
+```
+TTS stream closed unexpectedly
+```
+
+**Fix**
+
+Reconnect stream.
+
+---
+
+### Audio Encoding Error
+
+**Reason**
+
+Unsupported output format.
+
+**Example**
+
+```
+Audio encoding failed
+```
+
+**Fix**
+
+Change output codec.
+
+---
+
+# 8️⃣ WebRTC Errors
+
+### ICE Connection Failed
+
+**Reason**
+
+Peer connection failed.
+
+**Example**
+
+```
+ICE connection failed
+```
+
+**Fix**
+
+Verify ICE candidates.
+
+---
+
+### No Audio Track
+
+**Reason**
+
+Media track not attached.
+
+**Example**
+
+```
+No audio track received
+```
+
+**Fix**
+
+Attach audio track to peer connection.
+
+---
+
+### SDP Negotiation Failed
+
+**Reason**
+
+Incompatible codecs.
+
+**Example**
+
+```
+SDP negotiation failed
+```
+
+**Fix**
+
+Verify codec compatibility.
+
+---
+
+### DTLS Handshake Failed
+
+**Reason**
+
+Encryption negotiation failure.
+
+**Example**
+
+```
+DTLS handshake failed
+```
+
+**Fix**
+
+Check certificates.
+
+---
+
+# 9️⃣ TURN / STUN Errors
+
+### TURN Authentication Failed
+
+**Reason**
+
+Invalid credentials.
+
+**Example**
+
+```
+TURN authentication failed
+```
+
+**Fix**
+
+Verify TURN credentials.
+
+---
+
+### STUN Server Unreachable
+
+**Reason**
+
+Network blocked.
+
+**Example**
+
+```
+STUN timeout
+```
+
+**Fix**
+
+Verify STUN server connectivity.
+
+---
+
+### Relay Allocation Failed
+
+**Reason**
+
+TURN server capacity exceeded.
+
+**Example**
+
+```
+TURN relay allocation failed
+```
+
+**Fix**
+
+Scale TURN servers.
+
+---
+
+# 🔟 Network Errors
+
+### High Latency
+
+**Reason**
+
+Network congestion.
+
+**Example**
+
+```
+High audio latency detected
+```
+
+**Fix**
+
+Prefer direct peer connection.
+
+---
+
+### Packet Loss
+
+**Reason**
+
+Unstable network.
+
+**Example**
+
+```
+Audio packet loss detected
+```
+
+**Fix**
+
+Enable jitter buffering.
+
+---
+
+### Jitter Buffer Overflow
+
+**Reason**
+
+Packets arriving out of order.
+
+**Example**
+
+```
+Jitter buffer overflow
+```
+
+**Fix**
+
+Tune jitter buffer.
+
+---
+
+# 1️⃣1️⃣ Output Errors
+
+### Audio Playback Failed
+
+**Reason**
+
+Browser audio output failure.
+
+**Example**
+
+```
+Audio playback failed
+```
+
+**Fix**
+
+Check browser autoplay policy.
+
+---
+
+### Output Device Not Found
+
+**Reason**
+
+Invalid audio output device.
+
+**Example**
+
+```
+Output device unavailable
+```
+
+**Fix**
+
+Select correct audio device.
+
+---
+
+# Debugging Workflow
+
+When debugging Voice AI systems:
+
+1. Identify the failing pipeline stage.
+2. Check logs for errors and request IDs.
+3. Validate audio format and streaming configuration.
+4. Monitor latency, packet loss, and jitter.
+5. Implement retries and reconnection logic.
+
+Breaking debugging down by pipeline layer dramatically simplifies troubleshooting.

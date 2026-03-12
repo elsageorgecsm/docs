@@ -38,7 +38,8 @@
             "pages": [
               "ai-agents/ai-agents-intro",
               "ai-agents/llm-basics",
-              "ai-agents/tool-calling"
+              "ai-agents/tool-calling",
+              "ai-agents/common-voice-ai-errors"
             ]
           },
           {
@@ -83,7 +84,8 @@
               "api-reference/introduction",
               "api-reference/agent-session",
               "api-reference/agent-server",
-              "api-reference/plugins"
+              "api-reference/plugins",
+              "api-reference/common-api-errors"
             ]
           }
         ]
